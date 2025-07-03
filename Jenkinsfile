@@ -7,14 +7,5 @@ pipeline {
                 sh "hostname -i"
             }
         }
-        stage('test') {
-            agent {
-                label 'java-slave'
-            }
-            steps {
-                echo "** Displaying the ip where this stage is running**"
-                sh "hostname -i"
-            }
-        }
     }
 }
