@@ -3,8 +3,18 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                echo "**** Displaying the ip where this stage is executing ****"
-                sh "hostname -i"
+                echo "**** Coming from build stage****"
+            }
+        }
+        stage('groovy-test') {
+            steps {
+                script{
+                    def course = "k8s"
+                    if (course == "k8s")
+                        println("Thanks for enrolling")
+                    else
+                        println("Do enroll for k8s")
+                }
             }
         }
     }
