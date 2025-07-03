@@ -1,12 +1,13 @@
 pipeline {
     agent any
     stages {
-        stage ('build') {
+        stage('build') {
             steps {
                 echo "**** Displaying the ip where this stage is executing ****"
                 sh "hostname -i"
             }
-        stage ('test') {
+        }
+        stage('test') {
             agent {
                 label 'java-slave'
             }
@@ -15,7 +16,7 @@ pipeline {
                 sh "hostname -i"
             }
         }
-        stage ('development') {
+        stage('development') {
             agent {
                 label 'ssh-slave'
             }
@@ -23,7 +24,6 @@ pipeline {
                 echo "I am writing Jenkins pipelines using master and slave"
                 sh "hostname -i"
             }
-        }
         }
     }
 }
