@@ -16,14 +16,5 @@ pipeline {
                 sh "hostname -i"
             }
         }
-        stage('development') {
-            agent {
-                label 'ssh-slave'
-            }
-            steps {
-                echo "I am writing Jenkins pipelines using master and slave"
-                sh "hostname -i"
-            }
-        }
     }
 }
